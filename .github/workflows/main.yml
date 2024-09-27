@@ -12,27 +12,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
+    # download repo
     - uses: actions/checkout@v3
     
     # setup java
-    - name: Set up JDK 23
-      uses: actions/setup-java@v3
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
       with:
-        java-version: '23'
+        java-version: '17'
         distribution: 'temurin'
         
     # install chrome browser
     - name: Setup Chrome
-      uses: browser-actions/setup-chrome@v0.0.0
-      
-    # setup graldew
-    - name: Setup gradlew
-      run: chmod +x gradlew 
+      uses: browser-actions/setup-chrome@v1.7.1
+      with:
+        chrome-version: 127
+        install-chromedriver: true
+        
+   # setup graldew
+    - name: Setup Gradle 8.5
+      uses: gradle/actions/setup-gradle@v3
+      with:
+        gradle-version: 8.5
+    - name: Make gradlew executable
+      run: chmod +x ./gradlew
       
     # Execute gradle command for running cucumber test
     - name: Execute Test
-      run: gradlew cucumber
+      run: ./gradlew test
       
     # Archive Test Result
     - name: Archive Test Result
@@ -41,4 +48,3 @@ jobs:
       with:
         name: Cucumber Report
         path: reports
-    
