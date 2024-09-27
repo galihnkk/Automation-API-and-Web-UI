@@ -21,6 +21,17 @@ dependencies {
     testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.5.0'
     testImplementation group: 'org.json', name: 'json', version: '20240303'
     testImplementation group: 'io.rest-assured', name: 'json-schema-validator', version: '5.5.0'
+    implementation ('io.qameta.allure:allure-maven:2.14.0') {
+    exclude group: 'com.google.guava', module: 'guava'
+    exclude group: 'com.google.collections', module: 'google-collections'
+}
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'com.google.guava:guava:33.2.1-jre'
+        force 'com.google.collections:google-collections:1.0'
+    }
 }
 
 test {
