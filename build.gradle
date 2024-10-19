@@ -18,10 +18,10 @@ dependencies {
     testImplementation 'org.junit.vintage:junit-vintage-engine:5.11.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.11.0'
     
-    testImplementation 'io.qameta.allure:allure-maven:2.14.0' {
-        exclude group: 'com.google.guava', module: 'guava'
-        exclude group: 'com.google.collections', module: 'google-collections'
-    }
+    //testImplementation 'io.qameta.allure:allure-maven:2.14.0' {
+    //    exclude group: 'com.google.guava', module: 'guava'
+    // exclude group: 'com.google.collections', module: 'google-collections'
+    // }
     
     testImplementation 'io.rest-assured:rest-assured:5.5.0'
     testImplementation 'org.json:json:20240303'
