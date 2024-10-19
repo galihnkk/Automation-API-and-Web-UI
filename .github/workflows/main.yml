@@ -37,7 +37,11 @@ jobs:
     - name: Make gradlew executable
       run: chmod +x ./gradlew
       
-    # Execute gradle command for running cucumber test
+    # Execute gradle clean build 
+    - name: Execute Test
+      run: ./gradlew clean build
+
+      # Execute gradle command 
     - name: Execute Test
       run: ./gradlew test
       
